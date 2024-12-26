@@ -14,6 +14,13 @@
     /></noscript>
   </head>
   <body class="is-preload">
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul>
+    </nav>
     <!-- Wrapper -->
     <div id="wrapper" class="divided">
       <!-- One -->
@@ -27,13 +34,6 @@
             Arizona State University with a passion for cutting-edge technology
             and a drive for excellence in software development.
           </p>
-          <ul class="actions stacked">
-            <li>
-              <a href="#first" class="button big wide smooth-scroll-middle"
-                >Get Started</a
-              >
-            </li>
-          </ul>
         </div>
         <div class="image">
           <img src="images/Kashyap picture.jpg" alt="Kashyap Hegde Kota" />
@@ -177,5 +177,25 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+      // Map page URLs to nav items
+      const pageMap = {
+        "index.html": "home",
+        "about.html": "about",
+        "contact.html": "contact",
+      };
+
+      // Get the current page name from the URL
+      const currentPage = window.location.pathname.split("/").pop();
+
+      // Highlight the nav item that matches the current page
+      const navItems = document.querySelectorAll(".nav-item");
+      navItems.forEach((item) => {
+        if (item.dataset.page === pageMap[currentPage]) {
+          item.classList.add("active");
+        }
+      });
+    </script>
   </body>
 </html>
